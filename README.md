@@ -44,6 +44,19 @@ Things you may want to cover:
 - has_many :users, through: :members
 
 
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|message|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :group
+- belongs_to :user
+
+
 
 ## membersテーブル
 
