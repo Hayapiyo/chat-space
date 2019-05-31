@@ -25,12 +25,12 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|email|string|null: false|
+|name|string|null: false, add_index, unique: true|
 
 ### Asociation
 - has_many :members
 - has_many :groups, through: :members
+- has_many :messages
 
 
 
@@ -42,12 +42,14 @@ Things you may want to cover:
 ### Asociation
 - has_many :members
 - has_many :users, through: :members
+- has_many :messages
 
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|message|text|null: false|
+|message|text|------|
+|image|text|--------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
