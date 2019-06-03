@@ -1,0 +1,82 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChatSpace
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render partial: 'layouts/flash'
+
+    .flash-box
+      グループを作成しました
+    .wrapper
+      .chat-side
+        .side-header
+          .side-header_box
+            %p.side-header_box_user-name
+              test-user
+            %ul.side-header_box_menu
+              %li.side-header_box_menu_new-group
+                %a.link{:href => "#"}
+                  %i.fa.fa-edit
+              %li.side-header_box_menu_edit-user
+                %a.link{:href => "#"}
+                  %i.fa.fa-cog
+        .groups
+          .group_1
+            .group_1.group-name
+              test-group
+            .group_1.group-latest-message
+              さようなら
+          .group_2
+            .group_2.group-name
+              sample-group
+            .group_2.group-latest-message
+              hello!
+          .group_3
+            .group_3.group-name
+              example
+            .group_3.group-latest-message
+              まだメッセージがありません
+
+      .chat-main
+        .main-header
+          .main-header_left-box
+            %h2.main-header_left-box_current-group
+              test-group
+            %ul.main-header_left-box_member-list
+              Member : 
+              %li.main-header_left-box_member-list_member
+                test-user
+          %a{:href => "#"}
+            %button.main-header_edit-btn
+              Edit
+        .messages
+          .message_1
+            .message_1_upper-info
+              %p.message_1_upper-info_talker
+                test-user
+              %p.message_1_upper-info_date
+                2019/06/01（Sat） 18:48:34
+            .message_1_text
+              こんにちは！
+          .message_2
+            .message_2_upper-info
+              %p.message_2_upper-info_talker
+                test-user
+              %p.message_2_upper-info_date
+                2019/06/02（Sun） 08:23:15
+            .message_2_text
+              さようなら！
+        .form
+          .form_new_message
+            .input-box
+              %input.input-box_text{:type => "text", :placeholder => "type message"}/
+              %label.input-box_text_label{for: "upload_file"}
+                %input.input-box_text_image-button{:type => "file", :name => "s_file", :id => "upload_file"}/
+              %i.fa.fa-image
+            %button.submit-button{:type => "submit"}
+              Send
+
