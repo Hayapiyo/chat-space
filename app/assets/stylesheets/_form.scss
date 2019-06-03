@@ -1,0 +1,51 @@
+.form {
+  flex: 1;
+  height: 90px;
+  background-color: #ddd;
+  margin-bottom: 0;
+  position: relative;
+
+  &__new-message {
+    position: relative;
+
+    &__input-box {
+      padding: 20px 15px 20px 40px;
+      display: inline-block;
+      height:50px;
+
+      &__text {
+        width: calc(100vw - 500px);
+        height: 50px;
+        background-color: $color-white;
+        display: inline-block;
+        position: relative;
+      }
+      &__label {
+        border: double 9px;
+        opacity: 0;
+        position: absolute;
+        z-index: 1;
+        right: 165px;
+        top: 38px;
+
+        &__image-button {
+          display: none;
+        }
+      }
+      .fa.fa-image {
+        position: absolute;
+        z-index:0.9;
+        right: 165px;
+        top: 38px;
+      }
+    }
+  }
+  .submit-button {
+    width: 100px;
+    height: 50px;
+    background-color: $color-skyblue;
+    display: inline-block;
+    color: $color-white;
+    font-size: 16px;
+  }
+}
