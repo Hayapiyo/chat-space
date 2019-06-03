@@ -14,6 +14,7 @@ body {
 
   .wrapper {
     display: flex;
+
     .chat-side {
       color: $color-white;
       width: 300px;
@@ -25,19 +26,19 @@ body {
         font-size: 16px;
         padding: 0 20px;
 
-        .side-header_box {
+        &__box {
           position: relative;
           line-height: 100px;
 
-          .side-header_box_user-name {
+          &__user-name {
             display: inline-block;
           }
-          .side-header_box_menu {
+          &__menu {
             display: inline-block;
             position: absolute;
             right: 20px;
 
-            .side-header_box_menu_new-group {
+            &__new-group {
               display: inline-block;
 
               .link {
@@ -47,7 +48,7 @@ body {
                 }
               }
             }
-            .side-header_box_menu_edit-user {
+            &__edit-user {
               display: inline-block;
 
               .link {
@@ -60,37 +61,37 @@ body {
           }
         }
       }
-      .groups {
+      .group {
         height: calc(100vh - 100px);
         background-color: #2f3e51;
         padding: 20px 20px 0 20px;
 
-        .group_1 {
+        &__1 {
 
-         .group_1.group-name {
+         &__group-name {
           font-size: 15px;
           }
-         .group_1.group-latest-message {
+         &__group-latest-message {
           margin-top: 5px;
           font-size: 11px;
           }
          }
-        .group_2 {
-         .group_2.group-name {
+        &__2 {
+         &__group-name {
           margin-top: 40px;
           font-size: 15px;
           }
-         .group_2.group-latest-message {
+         &__group-latest-message {
           margin-top: 5px;
           font-size: 11px;
           }
         }
-        .group_3 {
-         .group_3.group-name {
+        &__3 {
+         &__group-name {
           margin-top: 40px;
           font-size: 15px;
           }
-         .group_3.group-latest-message {
+         &__group-latest-message {
           margin-top: 5px;
           font-size: 11px;
           }
@@ -108,22 +109,22 @@ body {
         padding: 0 40px;
         position: relative;
 
-        .main-header_left-box {
+        &__left-box {
 
-          .main-header_left-box_current-group {
+          &__current-group {
             font-size: 20px;
             padding-top: 35px;
           }
-          .main-header_left-box_member-list {
+          &__member-list {
             font-size: 12px;
             display: inline-block;
 
-            li.main-header_left-box_member-list_member {
+            &__member {
               display: inline-block;
             }
           }
         }
-        .main-header_edit-btn {
+        &__edit-btn {
           display: inline-block;
           border: solid 2px $color-skyblue;
           padding: 0 20px;
@@ -135,47 +136,48 @@ body {
           font-size: 16px;
         }
       }
-      .messages {
+      .message {
         height: calc(100vh - 171px);
         background-color: #fafafa;
         padding: 0 40px;
         font-size: 12px;
 
-       .message_1 {
+       &__1 {
          padding-top: 46px;
 
-         .message_1_upper-info {
-           .message_1_upper-info_talker {
+         &__upper-info {
+           &__talker {
              display: inline-block;
              font-weight: bold;
            }
-           .message_1_upper-info_date {
+           &__date {
             color: $color-gray;
             display: inline-block;
             padding-left: 10px;
            }
          }
-         .message_1_text {
+         &__text {
           }
          }
-       }
-       .message_2 {
+       &__2 {
          padding-top: 40px;
 
-         .message_2_upper-info {
-           .message_2_upper-info_talker {
+         &__upper-info {
+
+           &__talker {
              display: inline-block;
              font-weight: bold;
            }
-           .message_2_upper-info_date {
+           &__date {
             color: $color-gray;
             display: inline-block;
             padding-left: 10px;
            }
           }
-         .message_2_text {
+         &__text {
          }
         }
+       }
       }
       .form {
         flex: 1;
@@ -184,22 +186,22 @@ body {
         margin-bottom: 0;
         position: relative;
 
-        .form_new_message {
+        &__new-message {
           position: relative;
 
-          .input-box {
+          &__input-box {
             padding: 20px 15px 20px 40px;
             display: inline-block;
             height:50px;
 
-            .input-box_text {
+            &__text {
               width: calc(100vw - 500px);
               height: 50px;
               background-color: $color-white;
               display: inline-block;
               position: relative;
             }
-            .input-box_text_label {
+            &__label {
               border: double 9px;
               opacity: 0;
               position: absolute;
@@ -207,7 +209,7 @@ body {
               right: 165px;
               top: 38px;
 
-              .input-box_text_image-button {
+              &__image-button {
                 display: none;
               }
             }
