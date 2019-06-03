@@ -1,0 +1,80 @@
+.chat-main {
+  flex: 1;
+
+  .main-header {
+    height: 100px;
+    background-color: $color-white;
+    border-bottom: solid 1px #eee;
+    padding: 0 40px;
+    position: relative;
+
+    &__left-box {
+
+      &__current-group {
+        font-size: 20px;
+        padding-top: 35px;
+      }
+      &__member-list {
+        font-size: 12px;
+        display: inline-block;
+
+        &__member {
+          display: inline-block;
+        }
+      }
+    }
+    &__edit-btn {
+      display: inline-block;
+      border: solid 2px $color-skyblue;
+      padding: 0 20px;
+      height: 38px;
+      position: absolute;
+      right: 40px;
+      top: 28px;
+      color: $color-skyblue;
+      font-size: 16px;
+    }
+  }
+  .message {
+    height: calc(100vh - 171px);
+    background-color: #fafafa;
+    padding: 0 40px;
+    font-size: 12px;
+
+   &__1 {
+     padding-top: 46px;
+
+     &__upper-info {
+       &__talker {
+         display: inline-block;
+         font-weight: bold;
+       }
+       &__date {
+        color: $color-gray;
+        display: inline-block;
+        padding-left: 10px;
+       }
+     }
+     &__text {
+      }
+     }
+   &__2 {
+     padding-top: 40px;
+
+     &__upper-info {
+
+       &__talker {
+         display: inline-block;
+         font-weight: bold;
+       }
+       &__date {
+        color: $color-gray;
+        display: inline-block;
+        padding-left: 10px;
+       }
+      }
+     &__text {
+     }
+    }
+   }
+  }
