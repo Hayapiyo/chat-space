@@ -1,0 +1,29 @@
+.chat-side
+  .side-header
+    .side-header__box
+      %p.side-header__box__user-name
+        = current_user.name
+      %ul.side-header__box__menu
+        %li.side-header__box__menu__new-group
+          = link_to do
+            %i.fa.fa-edit
+        %li.side-header__box__menu__edit-user
+          = link_to edit_user_path(current_user) do
+            %i.fa.fa-cog
+
+  .group
+    .group__1
+      .group__1__group-name
+        test-group
+      .group__1__group-latest-message
+        さようなら
+    .group__2
+      .group__2__group-name
+        sample-group
+      .group__2__group-latest-message
+        hello!
+    .group__3
+      .group__3__group-name
+        example
+      .group__3__group-latest-message
+        まだメッセージがありません

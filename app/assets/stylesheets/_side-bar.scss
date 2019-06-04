@@ -24,21 +24,16 @@
         &__new-group {
           display: inline-block;
 
-          .link {
+          .fa.fa-edit {
             color: $color-white;
-
-            .fa.fa-edit {
-            }
           }
-        }
+         }
         &__edit-user {
           display: inline-block;
+          color: $color-white;
 
-          .link {
+          .fa.fa-cog {
             color: $color-white;
-
-            .fa.fa-cog {
-            }
           }
         }
       }
