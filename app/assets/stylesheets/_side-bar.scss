@@ -39,40 +39,21 @@
       }
     }
   }
-  .group {
+  .groups {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
     padding: 20px 20px 0 20px;
 
-    &__1 {
-
-     &__group-name {
-      font-size: 15px;
-      }
-     &__group-latest-message {
-      margin-top: 5px;
-      font-size: 11px;
-      }
-     }
-    &__2 {
-     &__group-name {
-      margin-top: 40px;
-      font-size: 15px;
-      }
-     &__group-latest-message {
-      margin-top: 5px;
-      font-size: 11px;
-      }
+    .group__name {
+    font-size: 15px;
+    color: $color-white;
     }
-    &__3 {
-     &__group-name {
-      margin-top: 40px;
-      font-size: 15px;
-      }
-     &__group-latest-message {
-      margin-top: 5px;
-      font-size: 11px;
-      }
+
+    .group__message {
+    margin-top: 5px;
+    margin-bottom: 40px;
+    font-size: 11px;
+    color: $color-white;
     }
   }
 }
