@@ -2,18 +2,18 @@
 -# .flash-box
 -#   グループを作成しました
 .wrapper
-  = render partial: 'side_bar'
+  = render partial: 'devise/shared/side_bar'
 
   .chat-main
     .main-header
       .main-header__left-box
         %h2.main-header__left-box__current-group
-          test-group
+          = @group.name
         %ul.main-header__left-box__member-list
           Member : 
           %li.main-header__left-box__member-list__member
             test-user
-      %a{href: "#"}
+      = link_to edit_group_path(@group.id) do
         %button.main-header__edit-btn
           Edit
 
