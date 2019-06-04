@@ -1,9 +1,12 @@
 @import "./reset";
 @import "font-awesome";
 @import "./variable";
-@import "./flash";
+// @import "./flash";
 @import "./wrapper";
 @import "./side-bar";
 @import "./chat";
 @import "./form";
-@import "./user";
+
+@import "modules/user";
+@import "modules/flash";
+// @import "./side-bar";
