@@ -18,30 +18,22 @@
           Edit
 
     .message
-      .message__1
-        .message__1__upper-info
-          %p.message__1__upper-info__talker
-            test-user
-          %p.message__1__upper-info__date
-            2019/06/01（Sat） 18:48:34
-        .message__1__text
-          こんにちは！
-      .message__2
-        .message__2__upper-info
-          %p.message__2__upper-info__talker
-            test-user
-          %p.message__2__upper-info__date
-            2019/06/02（Sun） 08:23:15
-        .message__2__text
-          さようなら！
+      - @group.messages.each do |message|
+        .message__upper-info
+          %p.message__upper-info__talker
+            = current_user.name
+          %p.message__upper-info__date
+            = message.created_at
+        .message__text
+          = message.content
+          = image_tag message.image.url if message.image.present?
+
 
     .form
-      .form__new-message
-        .form__new-message__input-box
-          %input.form__new-message__input-box__text{type: "text", placeholder: "type message"}/
-          %label.form__new-message__input-box__label{for: "upload_file"}
-            %input.form__new-message__input-box__label__image-button{type: "file", name: "s_file", id: "upload_file"}/
-          %i.fa.fa-image
-        %button.submit-button{type: "submit"}
-          Send
-
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

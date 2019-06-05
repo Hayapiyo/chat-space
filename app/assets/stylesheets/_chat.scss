@@ -36,45 +36,25 @@
     }
   }
   .message {
-    height: calc(100vh - 171px);
+    height: calc(100vh - 217px);
     background-color: #fafafa;
     padding: 0 40px;
     font-size: 12px;
+    padding-top: 46px;
 
-   &__1 {
-     padding-top: 46px;
-
-     &__upper-info {
-       &__talker {
-         display: inline-block;
-         font-weight: bold;
-       }
-       &__date {
-        color: $color-gray;
+    &__upper-info {
+      &__talker {
+        padding-top: 40px;
         display: inline-block;
-        padding-left: 10px;
-       }
-     }
-     &__text {
+        font-weight: bold;
       }
-     }
-   &__2 {
-     padding-top: 40px;
-
-     &__upper-info {
-
-       &__talker {
-         display: inline-block;
-         font-weight: bold;
-       }
-       &__date {
-        color: $color-gray;
-        display: inline-block;
-        padding-left: 10px;
-       }
+      &__date {
+      color: $color-gray;
+      display: inline-block;
+      padding-left: 10px;
       }
-     &__text {
-     }
     }
-   }
+    &__text {
+    }
   }
+}
