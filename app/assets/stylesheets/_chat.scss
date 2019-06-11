@@ -1,14 +1,19 @@
 .chat-main {
   flex: 1;
+  position: relative;
+  width: calc(100vw - 300px);
+  margin-left: 300px;
 
   .main-header {
     height: 100px;
+    width: calc(100vw - 300px);
     background-color: $color-white;
     border-bottom: solid 1px #eee;
     padding: 0 40px;
-    position: relative;
+    position: fixed;
 
     &__left-box {
+      display: inline-block;
 
       &__current-group {
         font-size: 20px;
@@ -29,18 +34,19 @@
       padding: 0 20px;
       height: 38px;
       position: absolute;
-      right: 40px;
+      right: 120px;
       top: 28px;
       color: $color-skyblue;
       font-size: 16px;
     }
   }
   .message {
-    height: calc(100vh - 217px);
+    height: 100%;
     background-color: #fafafa;
     padding: 0 40px;
     font-size: 12px;
     padding-top: 46px;
+    margin-top: 100px;
 
     &__upper-info {
       &__talker {

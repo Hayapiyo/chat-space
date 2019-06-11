@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function(){
     var img = message.image ? "${message.image}" : ""
     var html = `<div class="message__upper-info">
                   <p class="message__upper-info__talker">${ message.user_name }</p>
-                  <p class="message__upper-info__date">${ message.created_at }</p>
+                  <p class="message__upper-info__date">${ message.date }</p>
                 </<div>
                 <div class="message__text">
                   ${ message.content ? message.content : "" }
@@ -23,14 +23,17 @@ $(document).on('turbolinks:load', function(){
       processData: false,
       contentType: false
     })
+
+    // ーーーー値がjbuilderを通して返ってきてからの処理ーーーー
     .done(function(data){
       var html = buildHTML(data);
       $('.message').append(html);
       $('#message_content').val('');
-
+      $('.form__submit').prop('disabled', '');
     })
     .fail(function(data){
       alert('エラーが発生したためメッセージは送信されませんでした。')
+      $('.form__submit').prop('disabled', '');
     })
   })
 });
