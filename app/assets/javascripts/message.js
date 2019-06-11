@@ -1,21 +1,21 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
-    var img = message.image ? "${message.image}" : ""
+    var img = message.image ? `<img src=${message.image} >` : "";
+    var cont = message.content ? message.content : "";
     var html = `<li class="message">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">${ message.user_name }</p>
                     <p class="message__upper-info__date">${ message.date }</p>
                   </div>
                   <div class="message__text">
-                    ${ message.content ? message.content : "" }
-                    <img src=${ img }>
+                    ${ cont }
+                    ${ img }
                   </div>
                 </li>`
               return html;
   }
   function scroll(){
     var position = $('.messages')[0].scrollHeight
-    console.log(position)
     $('.messages').animate({
       scrollTop: position
     }, 1000);
