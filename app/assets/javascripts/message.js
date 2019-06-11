@@ -1,16 +1,26 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
     var img = message.image ? "${message.image}" : ""
-    var html = `<div class="message__upper-info">
-                  <p class="message__upper-info__talker">${ message.user_name }</p>
-                  <p class="message__upper-info__date">${ message.date }</p>
-                </<div>
-                <div class="message__text">
-                  ${ message.content ? message.content : "" }
-                  <img src=${ img }>
-                </div>`
+    var html = `<li class="message">
+                  <div class="message__upper-info">
+                    <p class="message__upper-info__talker">${ message.user_name }</p>
+                    <p class="message__upper-info__date">${ message.date }</p>
+                  </div>
+                  <div class="message__text">
+                    ${ message.content ? message.content : "" }
+                    <img src=${ img }>
+                  </div>
+                </li>`
               return html;
   }
+  function scroll(){
+    var position = $('.messages')[0].scrollHeight
+    console.log(position)
+    $('.messages').animate({
+      scrollTop: position
+    }, 1000);
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var message = new FormData(this);
@@ -26,10 +36,11 @@ $(document).on('turbolinks:load', function(){
 
     // ーーーー値がjbuilderを通して返ってきてからの処理ーーーー
     .done(function(data){
-      var html = buildHTML(data);
-      $('.message').append(html);
+      var html = buildHTML(data);     // ここのvar htmlはなぜ必要なのか
+      $('.messages').append(html);
       $('#message_content').val('');
       $('.form__submit').prop('disabled', '');
+      scroll();
     })
     .fail(function(data){
       alert('エラーが発生したためメッセージは送信されませんでした。')
