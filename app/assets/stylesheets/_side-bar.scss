@@ -2,12 +2,15 @@
   color: $color-white;
   width: 300px;
   height: 100%;
+  position: fixed;
+  z-index: 10;
 
   .side-header {
     height: 100px;
     background-color: #253141;
     font-size: 16px;
-    padding: 0 20px;
+    padding: 0;
+    width: 300px;
 
     &__box {
       position: relative;
@@ -15,6 +18,7 @@
 
       &__user-name {
         display: inline-block;
+        padding-left: 20px;
       }
       &__menu {
         display: inline-block;
