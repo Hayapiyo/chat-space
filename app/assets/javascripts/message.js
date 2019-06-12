@@ -38,8 +38,10 @@ $(document).on('turbolinks:load', function(){
     .done(function(data){
       var html = buildHTML(data);     // ここのvar htmlはなぜ必要なのか
       $('.messages').append(html);
-      $('#message_content').val('');
+      // $('#message_content').val('');
+      // $('#message_image').val('');
       $('.form__submit').prop('disabled', '');
+      $('#new_message')[0].reset();
       scroll();
     })
     .fail(function(data){
