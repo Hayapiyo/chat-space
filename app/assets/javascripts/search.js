@@ -61,7 +61,6 @@ $(function() {
       $(document).on('click', '.user_search_add', function() {
         var name = $(this).attr("data-user-name");
         var id = $(this).attr("data-user-id");
-        // members_ids.push(id);       // members_idsという配列に、上記でクリックされたユーザーのidを追加
         appendUserToMembersList(name, id);
         $(this).parent().remove();
         console.log()
