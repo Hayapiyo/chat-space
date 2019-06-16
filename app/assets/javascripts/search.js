@@ -2,6 +2,7 @@ $(function() {
 
   var search_list = $("#user-search-result");
   var members_list = $("#chat-group-users");
+  var members_ids = [];
 
   function appendUserToSearchList(user) {
     var html = `<div class="chat-group-user clearfix">
@@ -29,7 +30,7 @@ $(function() {
   }
 
   $(function() {
-    $(".chat-group-form__input").on("keyup", function() {
+    $("#user-search-field").on("keyup", function() {
       var input = $("#user-search-field").val();
 
       $.ajax({
@@ -60,7 +61,10 @@ $(function() {
       $(document).on('click', '.user_search_add', function() {
         var name = $(this).attr("data-user-name");
         var id = $(this).attr("data-user-id");
+        // members_ids.push(id);       // members_idsという配列に、上記でクリックされたユーザーのidを追加
         appendUserToMembersList(name, id);
+        $(this).parent().remove();
+        console.log()
       });
     });
 

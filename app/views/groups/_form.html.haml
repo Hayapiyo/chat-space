@@ -5,6 +5,7 @@
       %ul
         - @group.errors.full_messages.each do |message|
           %li= message
+
   .chat-group-form__field
     .chat-group-form__field--left
       = f.label :name, class: 'chat-group-form__label'
@@ -32,4 +33,4 @@
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
-      = f.submit class: 'chat-group-form__action-btn'
+      = f.submit class: 'chat-group-form__action-btn'   # このボタンを押すと、groupsコントローラのcreateアクションが動く
