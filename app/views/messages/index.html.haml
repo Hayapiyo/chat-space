@@ -19,7 +19,7 @@
 
     %ul.messages
       - @group.messages.each do |message|
-        %li.message
+        %li.message{data: {id: "#{message.id}"}}
           .message__upper-info
             %p.message__upper-info__talker
               = current_user.name
