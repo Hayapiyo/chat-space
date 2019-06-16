@@ -63,7 +63,6 @@ $(function() {
         var id = $(this).attr("data-user-id");
         appendUserToMembersList(name, id);
         $(this).parent().remove();
-        console.log()
       });
     });
 
