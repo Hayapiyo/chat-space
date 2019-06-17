@@ -2,7 +2,6 @@ $(function() {
 
   var search_list = $("#user-search-result");
   var members_list = $("#chat-group-users");
-  var members_ids = [];
 
   function appendUserToSearchList(user) {
     var html = `<div class="chat-group-user clearfix">
@@ -58,11 +57,11 @@ $(function() {
     });
 
     $(function() {
-      $(document).on('click', '.user_search_add', function() {
+      $(document).on('click', '.user_search_add', function() {      // 追加された要素をセレクタにしたい場合、documentを指定、オプションにクラス名を記述
         var name = $(this).attr("data-user-name");
         var id = $(this).attr("data-user-id");
         appendUserToMembersList(name, id);
-        $(this).parent().remove();
+        $(this).parent().remove();         // クリックされた要素の親要素は、サーチリストから消える
       });
     });
 
