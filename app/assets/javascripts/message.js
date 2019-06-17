@@ -67,7 +67,6 @@ $(document).on('turbolinks:load', function(){
 
     // ーーーー値がjbuilderを通して返ってきてからの処理ーーーー
     .done(function(data) {
-      console.log('success')
       data.forEach(function(message) {
         var html = buildHTML(message)  // buildHTMLメソッドに、最新messagesから一つずつ取り出したmessageを引数として渡す
         $('messages').append(html)     // messages要素に、上記で生成された新規message要素を追加
@@ -76,7 +75,7 @@ $(document).on('turbolinks:load', function(){
     })
 
     .fail(function() {
-      console.log('error');
+      alert('自動更新に失敗しました。')
     });
   };
 
