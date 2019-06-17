@@ -1,6 +1,8 @@
 class Api::MessagesController < ApplicationController
+  before_action :set_group
+
   def index
-    @last_messages = @group.messages.where('id > ?', params[Message.last.id])
+    @messages = @group.messages.where('id > ?', params[:id])    message.jsのlast_message_idは、paramsにidとして入るので、params[:id]と書いて取得できる！
   end
 
   private
@@ -9,3 +11,5 @@ class Api::MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 end
+
+# jsからはブラウザ上のラストメッセージのidのみ渡っている

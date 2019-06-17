@@ -53,23 +53,25 @@ $(document).on('turbolinks:load', function(){
   })
 
 
-  //ーーーー 自動更新 ーーーー
-  function reloadMessages() {
-    // カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    last_message_id = message.id
 
+  // ーーーー 自動更新 ーーーー
+  function reloadMessages() {   // 84行目で呼ばれる
+    // カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    last_message_id = $('.message:last-child').data('id')      // last_message_idに最新のメッセージを取得する記述を代入したい
     $.ajax({
-      url: group_api_messages_path,
+      url: 'api/messages',
       type: 'get',
       dataType: 'json',
-      data: {id: last_message_id}
+      data: {id: last_message_id}   // ここではmessageそのものもdataとして送られている？
     })
 
     // ーーーー値がjbuilderを通して返ってきてからの処理ーーーー
-    .done(function(messages) {
-      messages.forEach(function(message) {
+    .done(function(data) {
+      console.log('success')
+      data.forEach(function(message) {
         var html = buildHTML(message)  // buildHTMLメソッドに、最新messagesから一つずつ取り出したmessageを引数として渡す
         $('messages').append(html)     // messages要素に、上記で生成された新規message要素を追加
+        scroll();
       })
     })
 
@@ -77,4 +79,6 @@ $(document).on('turbolinks:load', function(){
       console.log('error');
     });
   };
+
+  setInterval(reloadMessages, 5000);
 });
