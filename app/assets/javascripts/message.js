@@ -76,13 +76,11 @@ $(document).on('turbolinks:load', function(){
     })
 
     .fail(function() {
-      // alert('自動更新に失敗しました。')
       console.log('自動更新に失敗しました。')
     });
   };
 
   if(window.location.href.match(/\/groups\/\d+\/messages/)){
-    // console.log("111")
     setInterval(reloadMessages, 5000);
   }
 });
