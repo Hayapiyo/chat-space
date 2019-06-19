@@ -11,22 +11,24 @@
           = @group.name
         %ul.main-header__left-box__member-list
           Member : 
+          - @group.users.each do |user|
+            = user.name
           %li.main-header__left-box__member-list__member
-            test-user
       = link_to edit_group_path(@group.id) do
         %button.main-header__edit-btn
           Edit
 
-    .message
+    %ul.messages
       - @group.messages.each do |message|
-        .message__upper-info
-          %p.message__upper-info__talker
-            = current_user.name
-          %p.message__upper-info__date
-            = message.created_at
-        .message__text
-          = message.content
-          = image_tag message.image.url if message.image.present?
+        %li.message
+          .message__upper-info
+            %p.message__upper-info__talker
+              = current_user.name
+            %p.message__upper-info__date
+              = message.created_at
+          .message__text
+            = message.content
+            = image_tag message.image.url if message.image.present?
 
 
     .form
