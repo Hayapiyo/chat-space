@@ -65,3 +65,7 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-doc'
+
+group :production do
+ gem 'unicorn', '5.4.1'
+end
