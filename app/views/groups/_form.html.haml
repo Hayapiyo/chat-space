@@ -26,17 +26,19 @@
     .chat-group-form__field--right
 
       #chat-group-users
-        #chat-group-user-22.chat-group-user.clearfix
+        .chat-group-user.clearfix
           %input{name: "chat_group[user_ids][]", type: "hidden", value: current_user.id}/
           %p.chat-group-user__name
           = current_user.name
+        -if group.users.any?        # groupのuserが存在するとき、以下の処理を行う
+          - @users.each do |user|
+            .chat-group-user.clearfix
+              %input{name: "chat_group[user_ids][]", type: "hidden", value: user.id}/
+              %p.chat-group-user__name
+              = user.name
+              %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
+                削除
 
-          -if group.users.any?        # groupのuserが存在するとき、以下の処理を行う
-            - @group.users.each do |user|
-              #chat-group-user-22.chat-group-user.clearfix
-                %input{name: "chat_group[user_ids][]", type: "hidden", value: user.id}/
-                %p.chat-group-user__name
-                = user.name
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
