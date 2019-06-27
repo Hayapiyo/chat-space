@@ -23,9 +23,10 @@
             %p.message__upper-info__talker
               = message.user.name
             %p.message__upper-info__date
-              = message.created_at
+              = message.created_at.strftime("%Y-%m-%d %H:%M")   # strftimeメソッドで、時刻表記を整える（%Y=Year, %m=month, %d=date, %H=Hour, %M=Minutes）
           .message__text
             = message.content
+          .message__image
             = image_tag message.image.url if message.image.present?
 
 

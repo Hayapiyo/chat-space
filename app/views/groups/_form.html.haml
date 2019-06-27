@@ -24,12 +24,19 @@
     .chat-group-form__field--left
       %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
     .chat-group-form__field--right
+
       #chat-group-users
         #chat-group-user-22.chat-group-user.clearfix
-          %input{name: "chat_group[user_ids][]", type: "hidden", value: "22"}/
+          %input{name: "chat_group[user_ids][]", type: "hidden", value: current_user.id}/
           %p.chat-group-user__name
           = current_user.name
 
+          -if group.users.any?        # groupのuserが存在するとき、以下の処理を行う
+            - @group.users.each do |user|
+              #chat-group-user-22.chat-group-user.clearfix
+                %input{name: "chat_group[user_ids][]", type: "hidden", value: user.id}/
+                %p.chat-group-user__name
+                = user.name
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

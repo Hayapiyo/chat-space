@@ -32,11 +32,18 @@ $(document).on('turbolinks:load', function(){
     $(function() {
       $("#user-search-field").on("keyup", function() {
         var input = $("#user-search-field").val();
+        var members_ids = [];
+
+        // chat-group-usersの子孫要素inputタグの中のvalue部分を一つずつ取り出してmembers_idsに入れている
+        $('#chat-group-users').find('input').map(function() {
+          var member_id = $(this).val();
+          members_ids.push(member_id);
+        })
 
         $.ajax({
           type: 'GET',
           url: '/users',
-          data: { keyword: input },
+          data: { keyword: input, members_ids: members_ids },   // ここでmembers_idsが参照されるが、要素が追加された後の値が追加される
           dataType: 'json'
         })
 
