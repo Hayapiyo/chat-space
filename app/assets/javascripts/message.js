@@ -60,7 +60,7 @@ $(document).on('turbolinks:load', function(){          // この記述をする�
   function reloadMessages() {   // 84行目で呼ばれる
     // カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.message:last-child').data('id') || 0;     // last_message_idに最新のメッセージを取得する記述を代入したい
-    console.log(last_message_id)
+
     $.ajax({
       url: 'api/messages',
       type: 'get',
