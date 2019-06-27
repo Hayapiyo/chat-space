@@ -57,33 +57,32 @@ $(document).on('turbolinks:load', function(){          // この記述をする�
 
 
   // ーーーー 自動更新 ーーーー
-  if($('.message').length) {
-    function reloadMessages() {   // 84行目で呼ばれる
-      // カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-      last_message_id = $('.message:last-child').data('id')      // last_message_idに最新のメッセージを取得する記述を代入したい
-      $.ajax({
-        url: 'api/messages',
-        type: 'get',
-        dataType: 'json',
-        data: {id: last_message_id}   // ここではmessageそのものもdataとして送られている？
+  function reloadMessages() {   // 84行目で呼ばれる
+    // カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    last_message_id = $('.message:last-child').data('id') || 0;     // last_message_idに最新のメッセージを取得する記述を代入したい
+    console.log(last_message_id)
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}   // ここではmessageそのものもdataとして送られている？
+    })
+
+    // ーーーー値がjbuilderを通して返ってきてからの処理ーーーー
+    .done(function(data) {
+      data.forEach(function(message) {
+        var html = buildHTML(message)  // buildHTMLメソッドに、最新messagesから一つずつ取り出したmessageを引数として渡す
+        $('.messages').append(html)     // messages要素に、上記で生成された新規message要素を追加
+        scroll();
       })
+    })
 
-      // ーーーー値がjbuilderを通して返ってきてからの処理ーーーー
-      .done(function(data) {
-        data.forEach(function(message) {
-          var html = buildHTML(message)  // buildHTMLメソッドに、最新messagesから一つずつ取り出したmessageを引数として渡す
-          $('.messages').append(html)     // messages要素に、上記で生成された新規message要素を追加
-          scroll();
-        })
-      })
+    .fail(function() {
+      alert('自動更新に失敗しました。')
+    });
+  };
 
-      .fail(function() {
-        alert('自動更新に失敗しました。')
-      });
-    };
-
-    if(window.location.href.match(/\/groups\/\d+\/messages/)){
-      setInterval(reloadMessages, 5000);
-    }
+  if(window.location.href.match(/\/groups\/\d+\/messages/)){
+    setInterval(reloadMessages, 5000);
   }
 });
