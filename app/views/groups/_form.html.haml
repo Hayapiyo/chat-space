@@ -27,13 +27,13 @@
 
       #chat-group-users
         .chat-group-user.clearfix
-          %input{name: "chat_group[user_ids][]", type: "hidden", value: current_user.id}/
+          %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}/
           %p.chat-group-user__name
           = current_user.name
         -if group.users.any?        # groupのuserが存在するとき、以下の処理を行う
           - @users.each do |user|
             .chat-group-user.clearfix
-              %input{name: "chat_group[user_ids][]", type: "hidden", value: user.id}/
+              %input{name: "group[user_ids][]", type: "hidden", value: user.id}/
               %p.chat-group-user__name
               = user.name
               %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
