@@ -41,14 +41,15 @@ $(document).on('turbolinks:load', function(){          // この記述をする�
     })
 
     // ーーーー値がjbuilderを通して返ってきてからの処理ーーーー
-    .done(function(data){
-      var html = buildHTML(data);     // 新しいメッセージのhtmlを取得し、40行目でmessagesクラスの中に追加している
+    .done(function(message){
+      var html = buildHTML(message);     // 新しいメッセージのhtmlを取得し、40行目でmessagesクラスの中に追加している
       $('.messages').append(html);
       $('.form__submit').prop('disabled', '');
       $('#new_message')[0].reset();
       scroll();
     })
-    .fail(function(data){
+
+    .fail(function(message){
       alert('エラーが発生したためメッセージは送信されませんでした。')
       $('.form__submit').prop('disabled', '');
     })
