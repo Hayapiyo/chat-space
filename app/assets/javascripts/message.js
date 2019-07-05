@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){          // この記述をすることで、「初回読み込み」「リロード」「ページ遷移」でjavascriptが動くようにできる
+$(document).on('turbolinks:load', function(){          // この記述をすることで、「初回読み込み」「リロード」に加えて「ページ遷移」でもjavascriptが動くようにできる
                                                        // (デフォルトでは、turbolinksのgemにより、「ページ遷移」が非同期通信になり、javascriptが動かない)
   // ーーーー メッセージ追加 ＋ スクロール ーーーー
   function buildHTML(message) {
@@ -58,7 +58,7 @@ $(document).on('turbolinks:load', function(){          // この記述をする�
 
 
   // ーーーー 自動更新 ーーーー
-  function reloadMessages() {   // 84行目で呼ばれる
+  function reloadMessages() {   // 87行目で呼ばれる
     // カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.message:last-child').data('id') || 0;     // last_message_idに最新のメッセージを取得する記述を代入したい
 
