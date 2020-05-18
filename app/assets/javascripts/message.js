@@ -23,13 +23,14 @@ $(document).on('turbolinks:load', function(){          // この記述をする�
   function scroll(){
     var position = $('.messages')[0].scrollHeight
     $('.messages').animate({
-      scrollTop: position
-    }, 1000);
+      scrollTop: position    // トップが、何px下に動くかを指定
+    }, 100);
   }
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var message = new FormData(this);
+    console.log(message);
     var url = $(this).attr('action')
     $.ajax({
       url: url,
@@ -49,12 +50,11 @@ $(document).on('turbolinks:load', function(){          // この記述をする�
       scroll();
     })
 
-    .fail(function(message){
+    .fail(function(){
       alert('エラーが発生したためメッセージは送信されませんでした。')
       $('.form__submit').prop('disabled', '');
     })
   })
-
 
 
   // ーーーー 自動更新 ーーーー

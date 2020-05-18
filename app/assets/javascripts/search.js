@@ -1,8 +1,9 @@
-$(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){     // aタグからの遷移の際も下記が発火するようにする
   $(function() {
-    var search_list = $("#user-search-result");
-    var members_list = $("#chat-group-users");
+    var search_list = $("#user-search-result");   // 「検索結果部分」を、search_listとして設定
+    var members_list = $("#chat-group-users");    // 「追加されたメンバー部分」を、members_listとして設定
 
+    // 「検索結果メンバー」を表示させる関数
     function appendUserToSearchList(user) {
       var html = `<div class="chat-group-user clearfix">
                     <p class="chat-group-user__name">${ user.name }</p>
@@ -11,14 +12,14 @@ $(document).on('turbolinks:load', function(){
                   </div>`
       search_list.append(html);
     }
-
+    // 「エラーメッセージ」を表示させる関数
     function appendErrMsgToHTML(msg) {
       var html = `<div class="chat-group-user clearfix">
                     <p class="chat-group-user__name">${ msg }</p>
                   </div>`
       search_list.append(html);
     }
-
+    // 「追加」を押して「メンバーリスト」にユーザーを追加する関数
     function appendUserToMembersList(name, id) {
       var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
                     <input name='group[user_ids][]' type='hidden' value='${ id }'>
@@ -45,7 +46,6 @@ $(document).on('turbolinks:load', function(){
             data: { keyword: input, members_ids: members_ids },   // ここでmembers_idsが参照されるが、要素が追加された後の値が追加される
             dataType: 'json'
           })
-
           .done(function(users) {
             $("#user-search-result").empty();
             if (users.length !== 0) {

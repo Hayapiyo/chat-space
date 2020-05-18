@@ -31,7 +31,7 @@
           %p.chat-group-user__name
           = current_user.name
         -if group.users.any?        # groupのuserが存在するとき、以下の処理を行う
-          - @users.each do |user|
+          - @users.each do |user|   #
             .chat-group-user.clearfix
               %input{name: "group[user_ids][]", type: "hidden", value: user.id}/
               %p.chat-group-user__name

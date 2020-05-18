@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.users << current_user
+    @group.users
     if @group.save
       redirect_to root_path, notice: 'グループを作成しました'
     else
@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, { :user_ids => [] })
+    params.require(:group).permit(:name, { :user_ids => [] })   # このように書かないとユーザー全員のidを取得することができない
   end
 
   def set_group
